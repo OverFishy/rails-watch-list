@@ -10,12 +10,14 @@ class Movie < ApplicationRecord
 
   def check_for_bookmarks
     if bookmarks.count.positive?
-      # errors.add_to_base('cannot delete movie while bookmarks exist')
       raise ActiveRecord::InvalidForeignKey
     end
   end
 end
 
+
+
 # ARCHIVE
 
+# instead of line 13. errors.add_to_base('cannot delete movie while bookmarks exist')
 # on line - 2. has_many :bookmarks, :dependent => :restrict_with_error
